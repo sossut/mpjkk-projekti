@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+
 import {baseUrl} from '../utils/variables';
 
 const fetchJson = async (url, options = {}) => {
@@ -15,9 +16,26 @@ const fetchJson = async (url, options = {}) => {
     throw new Error(err.message);
   }
 };
-// const useMovieDatabase = () => {
-
-// };
+const useMovieDatabase = () => {
+  const [movieArray, setMovieArray] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [isLoaded, setIsLoaded] = useState(false);
+  console.log('ApiHooks isLoaded', isLoaded);
+  const search = async (query = 'makkara') => {
+    try {
+      console.log(query);
+      const results = await fetchJson(
+        `https://api.themoviedb.org/3/search/movie?api_key=c625771482c38e59b7374dd1c48d75e3&query=${query}`
+      );
+      setMovieArray(results);
+      console.log(results);
+      setIsLoaded(true);
+    } catch (error) {
+      console.log('fetch failed');
+    }
+  };
+  return {search, movieArray, isLoaded};
+};
 const useMedia = () => {
   // TODO: move mediaArray state here
   const [mediaArray, setMediaArray] = useState([]);
@@ -41,4 +59,4 @@ const useMedia = () => {
   // TODO: move useEffect here
   return {mediaArray};
 };
-export {fetchJson, useMedia};
+export {useMedia, useMovieDatabase};
