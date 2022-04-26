@@ -1,18 +1,21 @@
 import './App.css';
-// import MediaTable from './components/MediaTable';
-import MovieApiSearch from './components/MovieApiSearch';
-import SearchTable from './components/SearchTable';
-import {useMovieDatabase} from './hooks/ApiHooks';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Nav from './components/Nav';
+import Home from './views/Home';
+import SearchForTitles from './views/SearchForTitles';
+import WriteAReview from './views/WriteAReview';
 
 function App() {
-  const {movieArray, isLoaded, search} = useMovieDatabase();
-  console.log('isLoaded', isLoaded);
-  console.log(movieArray);
   return (
-    <>
-      <MovieApiSearch search={search} />
-      <SearchTable movieArray={movieArray} />
-    </>
+    // eslint-disable-next-line no-undef
+    <Router basename={process.env.PUBLIC_URL}>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search" element={<SearchForTitles />} />
+        <Route path="/write" element={<WriteAReview />} />
+      </Routes>
+    </Router>
   );
 }
 

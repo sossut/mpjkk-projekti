@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {posterUrl} from '../utils/variables';
+import {Link} from 'react-router-dom';
+import {Button} from '@mui/material';
 
 const SearchRow = ({file}) => {
   return (
@@ -17,7 +19,14 @@ const SearchRow = ({file}) => {
         <p>{file.overview}</p>
       </td>
       <td>
-        <a href="">Write A Review</a>
+        <Button
+          variant="contained"
+          component={Link}
+          to={'/write'}
+          state={{file}}
+        >
+          Write A Review For This Movie
+        </Button>
       </td>
     </tr>
   );
