@@ -10,6 +10,7 @@ const SearchRow = ({file}) => {
       <td>
         <img
           className="pic"
+          height="300"
           src={posterUrl + file.poster_path}
           alt={file.original_title}
         />
