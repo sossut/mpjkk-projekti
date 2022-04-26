@@ -1,13 +1,13 @@
 import MovieApiSearch from '../components/MovieApiSearch';
 import {useMovieDatabase} from '../hooks/ApiHooks';
-import {Grid} from '@mui/material';
+import SearchTable from '../components/SearchTable';
 const WriteAReview = () => {
-  const {mediaArray} = useMovieDatabase();
-  console.log(mediaArray);
+  const {movieArray, search} = useMovieDatabase();
+  console.log(movieArray);
   return (
     <>
-      <MovieApiSearch />
-      <Grid container></Grid>
+      <MovieApiSearch search={search} />
+      <SearchTable movieArray={movieArray} />
     </>
   );
 };
