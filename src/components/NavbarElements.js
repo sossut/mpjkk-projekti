@@ -74,7 +74,7 @@ export const NavBtnLink = styled(Link)`
   text-decoration: none;
   margin-left: 24px;
 
-  :hover {
+  &:hover {
     transition: all 0.2s ease-in-out;
     background: #b39a50;
     color: #010606;
