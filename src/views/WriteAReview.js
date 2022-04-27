@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {useLocation} from 'react-router-dom';
-import {Grid, Rating} from '@mui/material';
+import {Grid, Rating, Button} from '@mui/material';
 import {posterUrl} from '../utils/variables';
+import {Link} from 'react-router-dom';
 
 const WriteAReview = () => {
   const [value, setValue] = useState(0);
@@ -20,16 +21,24 @@ const WriteAReview = () => {
       />
       <Grid>
         <div>{file.original_title}</div>
-        <div>Give a Rating</div>
-        <Rating
-          name="simple-controlled"
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-        />
         <form>
+          <div>Give a Rating</div>
+          <Rating
+            name="simple-controlled"
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+          />
           <textarea rows="8" cols="75" />
+          <Button
+            variant="contained"
+            component={Link}
+            to={'/single'}
+            state={{file}}
+          >
+            Publish
+          </Button>
         </form>
       </Grid>
     </Grid>

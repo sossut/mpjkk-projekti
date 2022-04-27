@@ -10,6 +10,15 @@ const Nav = () => {
         <li>
           <Link to={'/search'}>Write A Review</Link>
         </li>
+        <li>
+          <Link to={'/Profile'}>My Profile</Link>
+        </li>
+        <li>
+          <Link to={'/login'}>Log In</Link>
+        </li>
+        <li>
+          <Link to={'/logout'}>Logout</Link>
+        </li>
       </ul>
     </nav>
   );

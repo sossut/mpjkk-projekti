@@ -59,4 +59,55 @@ const useMedia = () => {
   // TODO: move useEffect here
   return {mediaArray};
 };
-export {useMedia, useMovieDatabase};
+const useUser = () => {
+  const getUser = async (token) => {
+    const fetchOptions = {
+      headers: {
+        'x-access-token': token,
+      },
+    };
+    return await fetchJson(baseUrl + 'users/user', fetchOptions);
+  };
+
+  const getUsername = async (username) => {
+    const checkUser = await fetchJson(baseUrl + 'users/username/' + username);
+    return checkUser.available;
+  };
+
+  const getUserById = async (userId, token) => {
+    const fetchOptions = {
+      headers: {
+        'x-access-token': token,
+      },
+    };
+    return await fetchJson(baseUrl + 'users/' + userId, fetchOptions);
+  };
+
+  const postUser = async (inputs) => {
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputs),
+    };
+    return await fetchJson(baseUrl + 'users', fetchOptions);
+  };
+
+  return {getUser, postUser, getUsername, getUserById};
+};
+const useLogin = () => {
+  const postLogin = async (inputs) => {
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputs),
+    };
+    return await fetchJson(baseUrl + 'login', fetchOptions);
+  };
+  return {postLogin};
+};
+
+export {useMedia, useMovieDatabase, useUser, useLogin};
