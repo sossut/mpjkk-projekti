@@ -1,27 +1,35 @@
-import {Link} from 'react-router-dom';
+import React from 'react';
+import {
+  Nav,
+  NavLink,
+  Bars,
+  NavMenu,
+  NavBtn,
+  NavBtnLink,
+} from './NavbarElements';
 
-const Nav = () => {
+const Navbar = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to={'/'}>Home</Link>
-        </li>
-        <li>
-          <Link to={'/search'}>Write A Review</Link>
-        </li>
-        <li>
-          <Link to={'/Profile'}>My Profile</Link>
-        </li>
-        <li>
-          <Link to={'/login'}>Log In</Link>
-        </li>
-        <li>
-          <Link to={'/logout'}>Logout</Link>
-        </li>
-      </ul>
-    </nav>
+    <>
+      <Nav>
+        <NavLink to="/">
+          <h1>Home</h1>
+        </NavLink>
+        <Bars />
+        <NavMenu>
+          <NavLink to="/search" activeStyle>
+            Write A Review
+          </NavLink>
+          <NavLink to="/profile" activeStyle>
+            My Profile
+          </NavLink>
+        </NavMenu>
+        <NavBtn>
+          <NavBtnLink to="/login">Sign In / Sign Up</NavBtnLink>
+        </NavBtn>
+      </Nav>
+    </>
   );
 };
 
-export default Nav;
+export default Navbar;
