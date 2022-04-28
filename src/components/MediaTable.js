@@ -1,5 +1,6 @@
 import React from 'react';
 import {useMedia} from '../hooks/ApiHooks';
+import '../index.css';
 
 //  import PropTypes from 'prop-types';
 import MediaRow from './MediaRow';
