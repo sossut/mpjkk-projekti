@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 const MovieApiSearch = ({search}) => {
   // eslint-disable-next-line no-unused-vars
   const [query, setQuery] = useState('');
-  console.log('MovieApiSearch', query);
+
   const onSubmit = (e) => {
     e.persist();
     e.preventDefault();

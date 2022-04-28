@@ -24,7 +24,7 @@ const LoginForm = (props) => {
 
       localStorage.setItem('token', userData.token);
       setUser(userData.user);
-      navigate('/home');
+      navigate('/');
     } catch (e) {
       alert(e.message);
     }

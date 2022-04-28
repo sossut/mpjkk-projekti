@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-import {baseUrl} from '../utils/variables';
+import {baseUrl, appID} from '../utils/variables';
 
 const fetchJson = async (url, options = {}) => {
   try {
@@ -28,7 +28,6 @@ const useMovieDatabase = () => {
         `https://api.themoviedb.org/3/search/movie?api_key=c625771482c38e59b7374dd1c48d75e3&query=${query}`
       );
       setMovieArray(results);
-      console.log(results);
       setIsLoaded(true);
     } catch (error) {
       console.log('fetch failed');
@@ -41,7 +40,7 @@ const useMedia = () => {
   const [mediaArray, setMediaArray] = useState([]);
   const getMedia = async () => {
     try {
-      const media = await fetchJson(baseUrl + 'media');
+      const media = await useTag().getTag(appID);
       const allFiles = await Promise.all(
         media.map(async (file) => {
           return await fetchJson(`${baseUrl}media/${file.file_id}`);
@@ -55,9 +54,21 @@ const useMedia = () => {
   useEffect(() => {
     getMedia();
   }, []);
-  // TODO: move loadMedia function here
-  // TODO: move useEffect here
-  return {mediaArray};
+  const postMedia = async (formdata, token) => {
+    try {
+      const fetchOptions = {
+        method: 'POST',
+        headers: {
+          'x-access-token': token,
+        },
+        body: formdata,
+      };
+      return await fetchJson(baseUrl + 'media', fetchOptions);
+    } catch (e) {
+      alert(e.message);
+    }
+  };
+  return {mediaArray, postMedia};
 };
 const useUser = () => {
   const getUser = async (token) => {
@@ -110,4 +121,28 @@ const useLogin = () => {
   return {postLogin};
 };
 
-export {useMedia, useMovieDatabase, useUser, useLogin};
+const useTag = () => {
+  const getTag = async (tag) => {
+    const tagResult = await fetchJson(baseUrl + 'tags/' + tag);
+    if (tagResult.length > 0) {
+      return tagResult;
+    } else {
+      throw new Error('No results');
+    }
+  };
+
+  const postTag = async (data, token) => {
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        'x-access-token': token,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
+    return await fetchJson(baseUrl + 'tags', fetchOptions);
+  };
+  return {getTag, postTag};
+};
+
+export {useMedia, useMovieDatabase, useUser, useLogin, useTag};
