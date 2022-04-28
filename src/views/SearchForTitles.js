@@ -4,7 +4,6 @@ import SearchTable from '../components/SearchTable';
 
 const SearchForTitles = () => {
   const {movieArray, search} = useMovieDatabase();
-  console.log(movieArray);
   return (
     <>
       <MovieApiSearch search={search} />

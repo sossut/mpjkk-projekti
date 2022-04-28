@@ -12,11 +12,12 @@ const SearchRow = ({file}) => {
           className="pic"
           height="300"
           src={posterUrl + file.poster_path}
-          alt={file.original_title}
+          alt={file.title}
         />
       </td>
       <td>
-        <h4>{file.original_title}</h4>
+        <h4>{file.title}</h4>
+        {file.title !== file.original_title && <h4>{file.original_title}</h4>}
         <p>{file.overview}</p>
       </td>
       <td>
