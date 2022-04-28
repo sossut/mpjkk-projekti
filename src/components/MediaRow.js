@@ -15,7 +15,6 @@ const MediaRow = ({file}) => {
   if (desc.release_date) {
     year = desc.release_date.slice(0, 4);
   }
-  console.log(year);
   return (
     <tr>
       <td>
