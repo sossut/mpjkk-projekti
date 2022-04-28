@@ -32,6 +32,7 @@ const WriteAReview = () => {
         movie_id: file.id,
         genre_ids: file.genre_ids,
         rating: value,
+        release_date: file.release_date,
       };
       const token = localStorage.getItem('token');
       console.log('token', token);
@@ -81,7 +82,7 @@ const WriteAReview = () => {
         height="300"
       />
       <Grid item={12}>
-        <div>{file.title}</div>
+        <h4>{file.title} </h4>
         <form onSubmit={handleSubmit}>
           <div>Give a Rating</div>
           <Rating

@@ -24,10 +24,11 @@ const useMovieDatabase = () => {
   const search = async (query = 'makkara') => {
     try {
       console.log(query);
-      const results = await fetchJson(
+      const response = await fetchJson(
         `https://api.themoviedb.org/3/search/movie?api_key=c625771482c38e59b7374dd1c48d75e3&query=${query}`
       );
-      setMovieArray(results);
+      setMovieArray(response);
+      console.log(response);
       setIsLoaded(true);
     } catch (error) {
       console.log('fetch failed');
