@@ -48,12 +48,15 @@ const useMovieDatabase = () => {
 
   return {search, movieArray, isLoaded, getGenres};
 };
-const useMedia = () => {
-  // TODO: move mediaArray state here
+const useMedia = (showAllFiles, userId) => {
+  const [update, setUpdate] = useState(false);
   const [mediaArray, setMediaArray] = useState([]);
   const getMedia = async () => {
     try {
-      const media = await useTag().getTag(appID);
+      let media = await useTag().getTag(appID);
+      if (!showAllFiles) {
+        media = media.filter((file) => file.user_id === userId);
+      }
       const allFiles = await Promise.all(
         media.map(async (file) => {
           return await fetchJson(`${baseUrl}media/${file.file_id}`);
@@ -66,7 +69,7 @@ const useMedia = () => {
   };
   useEffect(() => {
     getMedia();
-  }, []);
+  }, [userId, update]);
   const postMedia = async (formdata, token) => {
     try {
       const fetchOptions = {
@@ -81,7 +84,20 @@ const useMedia = () => {
       alert(e.message);
     }
   };
-  return {mediaArray, postMedia};
+  const deleteMedia = async (fileId, token) => {
+    try {
+      const fetchOptions = {
+        method: 'DELETE',
+        headers: {
+          'x-access-token': token,
+        },
+      };
+      return await fetchJson(baseUrl + 'media/' + fileId, fetchOptions);
+    } finally {
+      setUpdate(!update);
+    }
+  };
+  return {mediaArray, postMedia, deleteMedia};
 };
 const useUser = () => {
   const getUser = async (token) => {

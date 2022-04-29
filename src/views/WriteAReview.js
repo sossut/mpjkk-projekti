@@ -44,14 +44,13 @@ const WriteAReview = () => {
       });
 
       formdata.append('title', file.title);
-      console.log(file.title);
+
       formdata.append('description', JSON.stringify(desc));
-      console.log(JSON.stringify(desc));
+
       formdata.append('file', tiedosto);
-      console.log(posterUrl + file.poster_path);
-      console.log(formdata);
+
       const mediaData = await postMedia(formdata, token);
-      console.log('mediaData', mediaData);
+
       const tagData = await postTag(
         {
           file_id: mediaData.file_id,
