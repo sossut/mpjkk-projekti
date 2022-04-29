@@ -50,6 +50,7 @@ const useMovieDatabase = () => {
 };
 const useMedia = (showAllFiles, userId) => {
   const [update, setUpdate] = useState(false);
+  console.log('test');
   const [mediaArray, setMediaArray] = useState([]);
   const getMedia = async () => {
     try {
