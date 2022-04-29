@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {mediaUrl} from '../utils/variables';
 import {safeParseJson} from '../utils/functions';
 import {Rating} from '@mui/material';
+import {MediaContext} from '../contexts/MediaContext';
 
 const MediaRow = ({file}) => {
+  const {genres} = useContext(MediaContext);
+  console.log(genres);
   const desc = safeParseJson(file.description) || {
     description: file.description,
     rating: file.rating,
@@ -15,6 +18,12 @@ const MediaRow = ({file}) => {
   if (desc.release_date) {
     year = desc.release_date.slice(0, 4);
   }
+  const magic = () => {
+    console.log('magic');
+  };
+  useEffect(() => {
+    magic();
+  }, []);
   return (
     <tr>
       <td>

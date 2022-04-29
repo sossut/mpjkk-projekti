@@ -18,7 +18,6 @@ const fetchJson = async (url, options = {}) => {
 };
 const useMovieDatabase = () => {
   const [movieArray, setMovieArray] = useState([]);
-  const [genreArray, setGenreArray] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [isLoaded, setIsLoaded] = useState(false);
   console.log('ApiHooks isLoaded', isLoaded);
@@ -40,17 +39,14 @@ const useMovieDatabase = () => {
       const response = await fetchJson(
         'https://api.themoviedb.org/3/genre/movie/list?api_key=c625771482c38e59b7374dd1c48d75e3'
       );
-      setGenreArray(response);
       console.log('getGenres');
       return response;
     } catch (error) {
       console.log('fetch failed');
     }
   };
-  useEffect(() => {
-    getGenres();
-  }, []);
-  return {search, movieArray, isLoaded, genreArray, getGenres};
+
+  return {search, movieArray, isLoaded, getGenres};
 };
 const useMedia = () => {
   // TODO: move mediaArray state here

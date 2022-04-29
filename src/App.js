@@ -14,8 +14,8 @@ function App() {
   return (
     // eslint-disable-next-line no-undef
     <Router basename={process.env.PUBLIC_URL}>
-      <Nav />
       <MediaProvider>
+        <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

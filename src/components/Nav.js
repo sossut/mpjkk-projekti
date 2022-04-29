@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
+import {MediaContext} from '../contexts/MediaContext';
+import {useMovieDatabase} from '../hooks/ApiHooks';
 import {
   Nav,
   NavLink,
@@ -9,6 +11,14 @@ import {
 } from './NavbarElements';
 
 const Navbar = () => {
+  const {setGenres} = useContext(MediaContext);
+  const {getGenres} = useMovieDatabase();
+  useEffect(() => {
+    const fetchGenres = async () => {
+      setGenres(await getGenres());
+    };
+    fetchGenres();
+  }, []);
   return (
     <>
       <Nav>
