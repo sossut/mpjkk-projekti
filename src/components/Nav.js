@@ -9,6 +9,7 @@ import {
   NavBtn,
   NavBtnLink,
 } from './NavbarElements';
+
 const Navbar = () => {
   const {setGenres} = useContext(MediaContext);
   const {getGenres} = useMovieDatabase();
@@ -31,6 +32,9 @@ const Navbar = () => {
           </NavLink>
           <NavLink to="/profile" activeStyle>
             My Profile
+          </NavLink>
+          <NavLink to="/top" activeStyle>
+            Top Movies
           </NavLink>
         </NavMenu>
         <NavBtn>

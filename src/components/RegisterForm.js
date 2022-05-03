@@ -65,12 +65,6 @@ const RegisterForm = ({setToggle}) => {
     });
 
     ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
-      /*
-      if (value !== inputs.password) {
-        return false;
-      }
-      return true;
-      */
       console.log('validator', value, inputs.password);
       return value === inputs.password ? true : false;
     });
