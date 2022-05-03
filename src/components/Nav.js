@@ -9,7 +9,6 @@ import {
   NavBtn,
   NavBtnLink,
 } from './NavbarElements';
-
 const Navbar = () => {
   const {setGenres} = useContext(MediaContext);
   const {getGenres} = useMovieDatabase();
