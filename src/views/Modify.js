@@ -13,6 +13,7 @@ const Modify = () => {
   const desc = safeParseJson(file.description) || {
     description: file.description,
     rating: file.rating,
+    movie_id: file.id,
     orignal_title: file.orignal_title,
     release_date: file.release_year,
     genre_ids: file.genre_ids,
@@ -39,11 +40,13 @@ const Modify = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState(desc.rating);
   // eslint-disable-next-line no-unused-vars
-  const [originalTitle, setOriginalTitle] = useState(desc.orignal_title);
+  const [originalTitle, setOriginalTitle] = useState(desc.original_title);
   // eslint-disable-next-line no-unused-vars
   const [releaseDate, setReleaseDate] = useState(desc.release_date);
   // eslint-disable-next-line no-unused-vars
   const [genreIds, setGenreIds] = useState(desc.genre_ids);
+  // eslint-disable-next-line no-unused-vars
+  const [movieId, setMovieId] = useState(desc.movie_id);
   const doModify = async () => {
     try {
       console.log(file);
@@ -51,10 +54,11 @@ const Modify = () => {
       // lisätään filtterit descriptioniin
       const desc = {
         description: inputs.description,
-        rating: value,
         original_title: originalTitle,
-        release_date: releaseDate,
+        movie_id: movieId,
         genre_ids: genreIds,
+        rating: value,
+        release_date: releaseDate,
       };
       // tee sopiva objekti lähetettäväksi
       const data = {

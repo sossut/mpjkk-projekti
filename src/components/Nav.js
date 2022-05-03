@@ -33,6 +33,9 @@ const Navbar = () => {
           <NavLink to="/profile" activeStyle>
             My Profile
           </NavLink>
+          <NavLink to="/top" activeStyle>
+            Top Movies
+          </NavLink>
         </NavMenu>
         <NavBtn>
           <NavBtnLink to="/logout">Logout</NavBtnLink>
