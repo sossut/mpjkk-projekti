@@ -50,16 +50,17 @@ const TopSort = ({allFiles = true}) => {
 
   const renderList = array.map((item) => (
     <>
-      {console.log(item.average)}
-      <h4>{item.title.title}</h4>
-      <img
-        className="pic"
-        src={mediaUrl + item.title.thumbnails.w160}
-        alt={item.title.title}
-      />
-      <Rating name="read-only" value={item.average} readOnly precision={0.5}>
-        {item.average}
-      </Rating>
+      <div>
+        <h4>{item.title.title}</h4>
+        <img
+          className="pic"
+          src={mediaUrl + item.title.thumbnails.w160}
+          alt={item.title.title}
+        />
+        <Rating name="read-only" value={item.average} readOnly precision={0.5}>
+          {item.average}
+        </Rating>
+      </div>
     </>
   ));
   return <div>{renderList}</div>;
