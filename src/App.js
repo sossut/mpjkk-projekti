@@ -9,6 +9,7 @@ import WriteAReview from './views/WriteAReview';
 import Login from './views/Login';
 import Logout from './views/Logout';
 import Profile from './views/Profile';
+import Modify from './views/Modify';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/single" element={<Single />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/modify" element={<Modify />} />
         </Routes>
       </MediaProvider>
     </Router>
