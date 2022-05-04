@@ -37,7 +37,10 @@ const WriteAReview = () => {
       const token = localStorage.getItem('token');
       console.log('token', token);
       const formdata = new FormData();
-      const fileResponse = await fetch(posterUrl + file.poster_path);
+      const url = posterUrl + file.poster_path;
+      const subPath = url.split('original/')[1];
+      const proxy = `https://users.metropolia.fi/~mikaeala/proxy/fazer-proxy.php/${subPath}`;
+      const fileResponse = await fetch(proxy);
       const blob = await fileResponse.blob();
       const tiedosto = new File([blob], file.poster_path, {
         type: 'image/jpeg',

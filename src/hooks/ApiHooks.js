@@ -98,7 +98,22 @@ const useMedia = (showAllFiles, userId) => {
       setUpdate(!update);
     }
   };
-  return {mediaArray, postMedia, deleteMedia};
+  const putMedia = async (fileId, data, token) => {
+    try {
+      const fetchOptions = {
+        method: 'PUT',
+        headers: {
+          'x-access-token': token,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      };
+      return await fetchJson(baseUrl + 'media/' + fileId, fetchOptions);
+    } catch (e) {
+      //
+    }
+  };
+  return {mediaArray, postMedia, deleteMedia, putMedia};
 };
 const useUser = () => {
   const getUser = async (token) => {
