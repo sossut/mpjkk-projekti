@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {posterUrl} from '../utils/variables';
 import {Link} from 'react-router-dom';
 import {Button} from '@mui/material';
+import '../index.css';
 
 const SearchRow = ({file}) => {
   let releaseYear;
@@ -15,7 +16,7 @@ const SearchRow = ({file}) => {
       <td>
         <img
           className="pic"
-          height="300"
+          height="200"
           src={posterUrl + file.poster_path}
           alt={file.title}
         />
@@ -25,9 +26,9 @@ const SearchRow = ({file}) => {
           {file.title} ({releaseYear})
         </h4>
         {file.title !== file.original_title && <h4>{file.original_title}</h4>}
-        <p>{file.overview}</p>
+        <p id="kuvaus">{file.overview}</p>
       </td>
-      <td>
+      <td id="nappula">
         <Button
           variant="contained"
           component={Link}

@@ -23,7 +23,7 @@ const Navbar = () => {
     <>
       <Nav>
         <NavLink to="/">
-          <h1>Home</h1>
+          <h1>FilmSTAR</h1>
         </NavLink>
         <Bars />
         <NavMenu>

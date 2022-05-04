@@ -4,6 +4,7 @@ import {useMedia} from '../hooks/ApiHooks';
 import {safeParseJson} from '../utils/functions';
 import {Rating} from '@mui/material';
 import {mediaUrl} from '../utils/variables';
+import '../index.css';
 const TopSort = ({allFiles = true}) => {
   const {mediaArray} = useMedia(allFiles);
   console.log(mediaArray);
@@ -62,7 +63,7 @@ const TopSort = ({allFiles = true}) => {
       </Rating>
     </>
   ));
-  return <div>{renderList}</div>;
+  return <div id="topList">{renderList}</div>;
 };
 
 TopSort.propTypes = {

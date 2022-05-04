@@ -1,5 +1,6 @@
-import {Button, Grid, TextField, Typography} from '@mui/material';
+import {Button, Grid, TextField} from '@mui/material';
 import {useEffect, useState} from 'react';
+import '../index.css';
 
 import PropTypes from 'prop-types';
 
@@ -21,11 +22,7 @@ const MovieApiSearch = ({search}) => {
   }, [query]);
   return (
     <Grid container>
-      <Grid item xs={12}>
-        <Typography component="h1" variant="h2" gutterBottom>
-          Write A Review
-        </Typography>
-      </Grid>
+      <Grid item xs={12}></Grid>
       <Grid item xs={12}>
         <form onSubmit={onSubmit}>
           <TextField

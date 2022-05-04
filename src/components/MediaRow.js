@@ -5,6 +5,7 @@ import {safeParseJson} from '../utils/functions';
 import {Rating, Button} from '@mui/material';
 import {MediaContext} from '../contexts/MediaContext';
 import {Link} from 'react-router-dom';
+import '../index.css';
 
 const MediaRow = ({file, deleteMedia, userId}) => {
   console.log(userId);
@@ -13,7 +14,7 @@ const MediaRow = ({file, deleteMedia, userId}) => {
   console.log(user);
   // const genreList = genres.genres;
   const doDelete = () => {
-    const ok = confirm('Do juu delte?');
+    const ok = confirm('Do you really want to delete this review?');
     if (ok) {
       try {
         deleteMedia(file.file_id, localStorage.getItem('token'));
@@ -54,18 +55,27 @@ const MediaRow = ({file, deleteMedia, userId}) => {
           alt={file.title}
         />
       </td>
-      <td>
+      <td id="arvostelu">
         <h4>
           {file.title} ({year})
         </h4>
         {file.title !== desc.original_title && <h5>{desc.original_title}</h5>}
         <Rating name="read-only" value={desc.rating} readOnly />
         <p>{desc.description}</p>
-      </td>
-      <td>
-        <a href={file.filename}>View</a>
-      </td>
-      <td>
+        <Button
+          variant="contained"
+          component={Link}
+          to={file.filename}
+          state={{file}}
+          style={{
+            backgroundColor: '#f5ad42',
+            color: '#000',
+            border: '1px solid black',
+            marginRight: '10px',
+          }}
+        >
+          Open
+        </Button>
         {userId === file.user_id && (
           <>
             <Button
@@ -73,10 +83,24 @@ const MediaRow = ({file, deleteMedia, userId}) => {
               component={Link}
               to={'/modify'}
               state={{file}}
+              style={{
+                backgroundColor: '#f5ad42',
+                color: '#000',
+                border: '1px solid black',
+                marginRight: '10px',
+              }}
             >
               Edit
             </Button>
-            <Button variant="contained" onClick={doDelete}>
+            <Button
+              variant="contained"
+              onClick={doDelete}
+              style={{
+                backgroundColor: '#f5ad42',
+                color: '#000',
+                border: '1px solid black',
+              }}
+            >
               Delete
             </Button>
           </>
