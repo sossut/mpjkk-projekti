@@ -10,16 +10,23 @@ const Login = () => {
     <>
       <Container maxWidth="xs">
         {toggle ? <LoginForm /> : <RegisterForm setToggle={setToggle} />}
-        OR
         <Button
-          fullWidth
           color="primary"
           variant="contained"
+          style={{
+            backgroundColor: '#f5ad42',
+            color: '#000',
+            border: '1px solid black',
+            margin: '0 auto',
+            display: 'block',
+          }}
           onClick={() => {
             setToggle(!toggle);
           }}
         >
-          {toggle ? 'Register' : 'Login'}
+          {toggle
+            ? 'Create account here'
+            : 'already have an account? login here'}
         </Button>
       </Container>
     </>

@@ -31,11 +31,21 @@ const MovieApiSearch = ({search}) => {
             name="TMBD-title"
             onChange={(e) => setQuery(e.target.value)}
             value={query}
+            style={{
+              backgroundColor: '#fff',
+              color: '#000',
+            }}
           />
           <Button
             color="primary"
             type="submit"
             variant="contained"
+            style={{
+              backgroundColor: '#f5ad42',
+              color: '#000',
+              border: '1px solid black',
+              marginLeft: '10px',
+            }}
             // onClick={search}
           >
             Search

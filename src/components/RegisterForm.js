@@ -75,8 +75,20 @@ const RegisterForm = ({setToggle}) => {
   }, [inputs]);
 
   return (
-    <Container maxWidth="xs">
-      <Typography component="h1" variant="h3" gutterBottom>
+    <Container
+      maxWidth="xs"
+      sx={{
+        padding: '20px',
+      }}
+    >
+      <Typography
+        component="h1"
+        variant="h3"
+        sx={{
+          textAlign: 'center',
+        }}
+        gutterBottom
+      >
         Register
       </Typography>
       <ValidatorForm onSubmit={handleSubmit}>
@@ -84,66 +96,79 @@ const RegisterForm = ({setToggle}) => {
           fullWidth
           size="small"
           margin="dense"
-          placeholder="username"
-          label="username"
+          placeholder="Username"
+          label="Username"
           name="username"
           onChange={handleInputChange}
           value={inputs.username}
           validators={validators.username}
           errorMessages={errorMessages.username}
+          sx={{backgroundColor: '#fff'}}
         />
         <TextValidator
           fullWidth
           size="small"
           margin="dense"
-          label="password"
-          placeholder="password"
+          label="Password"
+          placeholder="Password"
           name="password"
           type="password"
           onChange={handleInputChange}
           value={inputs.password}
           validators={validators.password}
           errorMessages={errorMessages.password}
+          sx={{backgroundColor: '#fff'}}
         />
         <TextValidator
           fullWidth
           size="small"
           margin="dense"
-          label="re-type password"
-          placeholder="re-type password"
+          label="Re-type password"
+          placeholder="Re-type password"
           name="confirm"
           type="password"
           onChange={handleInputChange}
           value={inputs.confirm}
           validators={validators.confirm}
           errorMessages={errorMessages.confirm}
+          sx={{backgroundColor: '#fff'}}
         />
         <TextValidator
           fullWidth
           size="small"
           margin="dense"
-          label="email"
-          placeholder="email"
+          label="Email"
+          placeholder="Email"
           name="email"
           type="email"
           onChange={handleInputChange}
           value={inputs.email}
           validators={validators.email}
           errorMessages={errorMessages.email}
+          sx={{backgroundColor: '#fff'}}
         />
         <TextValidator
           fullWidth
           margin="dense"
           size="small"
-          label="full name"
-          placeholder="full name"
+          label="Full name"
+          placeholder="Full name"
           name="full_name"
           onChange={handleInputChange}
           value={inputs.full_name}
           validators={validators.full_name}
           errorMessages={errorMessages.full_name}
+          sx={{backgroundColor: '#fff'}}
         />
-        <Button fullWidth color="primary" type="submit" variant="contained">
+        <Button
+          fullWidth
+          color="primary"
+          type="submit"
+          variant="contained"
+          sx={{
+            marginTop: '15px',
+          }}
+        >
           Register
         </Button>
       </ValidatorForm>

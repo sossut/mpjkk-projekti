@@ -34,8 +34,20 @@ const LoginForm = (props) => {
   const {inputs, handleInputChange, handleSubmit} = useForm(doLogin, alkuarvot);
   console.log(inputs);
   return (
-    <Container maxWidth="xs">
-      <Typography component="h1" variant="h3" gutterBottom>
+    <Container
+      maxWidth="xs"
+      sx={{
+        padding: '20px',
+      }}
+    >
+      <Typography
+        component="h1"
+        variant="h3"
+        sx={{
+          textAlign: 'center',
+        }}
+        gutterBottom
+      >
         Login
       </Typography>
       <form onSubmit={handleSubmit}>
@@ -43,24 +55,34 @@ const LoginForm = (props) => {
           fullWidth
           size="small"
           margin="dense"
-          label="username"
+          label="Username"
           placeholder="username"
           name="username"
           onChange={handleInputChange}
           value={inputs.username}
+          sx={{backgroundColor: '#fff'}}
         />
         <TextField
           fullWidth
           size="small"
           margin="dense"
-          label="password"
+          label="Password"
           placeholder="password"
           name="password"
           type="password"
           onChange={handleInputChange}
           value={inputs.password}
+          sx={{backgroundColor: '#fff'}}
         />
-        <Button fullWidth color="primary" type="submit" variant="contained">
+        <Button
+          fullWidth
+          color="primary"
+          type="submit"
+          variant="contained"
+          sx={{
+            marginTop: '15px',
+          }}
+        >
           Login
         </Button>
       </form>

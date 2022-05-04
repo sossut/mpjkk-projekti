@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import {mediaUrl} from '../utils/variables';
 import {safeParseJson} from '../utils/functions';
-import {Rating, Button} from '@mui/material';
+import {Rating, Button, Typography} from '@mui/material';
 import {MediaContext} from '../contexts/MediaContext';
 import {Link} from 'react-router-dom';
 import '../index.css';
@@ -61,7 +61,10 @@ const MediaRow = ({file, deleteMedia, userId}) => {
         </h4>
         {file.title !== desc.original_title && <h5>{desc.original_title}</h5>}
         <Rating name="read-only" value={desc.rating} readOnly />
-        <p>{desc.description}</p>
+        <Typography>
+          <p>{desc.description}</p>
+        </Typography>
+
         <Button
           variant="contained"
           component={Link}

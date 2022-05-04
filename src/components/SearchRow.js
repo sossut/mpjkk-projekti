@@ -39,7 +39,7 @@ const SearchRow = ({file}) => {
             marginRight: '10px',
           }}
         >
-          Write A Review For This Movie
+          Review This Movie
         </Button>
       </td>
     </tr>
