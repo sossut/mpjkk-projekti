@@ -58,7 +58,15 @@ const TopSort = ({allFiles = true}) => {
         src={mediaUrl + item.title.thumbnails.w160}
         alt={item.title.title}
       />
-      <Rating name="read-only" value={item.average} readOnly precision={0.5}>
+      <Rating
+        name="read-only"
+        value={item.average}
+        sx={{
+          color: 'black',
+        }}
+        readOnly
+        precision={0.5}
+      >
         {item.average}
       </Rating>
     </>

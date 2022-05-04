@@ -60,7 +60,14 @@ const MediaRow = ({file, deleteMedia, userId}) => {
           {file.title} ({year})
         </h4>
         {file.title !== desc.original_title && <h5>{desc.original_title}</h5>}
-        <Rating name="read-only" value={desc.rating} readOnly />
+        <Rating
+          name="read-only"
+          value={desc.rating}
+          sx={{
+            color: 'black',
+          }}
+          readOnly
+        />
         <Typography>
           <p>{desc.description}</p>
         </Typography>

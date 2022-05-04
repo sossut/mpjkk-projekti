@@ -36,6 +36,7 @@ tr {
 }
 html {
   background-color: beige;
+  overflow-x: hidden;
 }
 form {
   width: 20%;
