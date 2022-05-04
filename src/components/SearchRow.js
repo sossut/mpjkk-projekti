@@ -27,13 +27,17 @@ const SearchRow = ({file}) => {
         </h4>
         {file.title !== file.original_title && <h4>{file.original_title}</h4>}
         <p id="kuvaus">{file.overview}</p>
-      </td>
-      <td id="nappula">
         <Button
           variant="contained"
           component={Link}
           to={'/write'}
           state={{file}}
+          style={{
+            backgroundColor: '#f5ad42',
+            color: '#000',
+            border: '1px solid black',
+            marginRight: '10px',
+          }}
         >
           Write A Review For This Movie
         </Button>
