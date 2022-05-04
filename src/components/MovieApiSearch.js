@@ -24,7 +24,7 @@ const MovieApiSearch = ({search}) => {
     <Grid container>
       <Grid item xs={12}></Grid>
       <Grid item xs={12}>
-        <form onSubmit={onSubmit}>
+        <form id="searchForm" onSubmit={onSubmit}>
           <TextField
             label="Enter a movie title"
             placeholder="Search for title"

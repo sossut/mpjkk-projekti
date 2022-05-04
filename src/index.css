@@ -38,7 +38,7 @@ html {
   background-color: beige;
   overflow-x: hidden;
 }
-form {
+#searchForm {
   width: 20%;
   padding: 30px;
   margin: auto;
