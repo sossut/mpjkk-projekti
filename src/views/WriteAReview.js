@@ -73,16 +73,32 @@ const WriteAReview = () => {
   }, [inputs.file]);
 
   return (
-    <Grid container>
+    <Grid
+      container
+      sx={{
+        padding: '30px',
+      }}
+    >
       <img
         className="pic"
         src={posterUrl + file.poster_path}
         alt={file.original_title}
         height="300"
       />
-      <Grid item={12}>
+      <Grid
+        item={12}
+        sx={{
+          padding: '15px',
+          width: '40vh',
+        }}
+      >
         <h4>{file.title} </h4>
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={handleSubmit}
+          sx={{
+            margin: '0',
+          }}
+        >
           <div>Give a Rating</div>
           <Rating
             name="simple-controlled"
@@ -92,13 +108,25 @@ const WriteAReview = () => {
             }}
           />
           <TextareaAutosize
-            minRows="8"
+            minRows="10"
+            placeholder="Write a review"
             fullWidth
             name="description"
             onChange={handleInputChange}
             value={inputs.description}
           />
-          <Button type="submit" variant="contained" color="primary">
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            style={{
+              backgroundColor: '#f5ad42',
+              color: '#000',
+              border: '1px solid black',
+              margin: '0 auto',
+              display: 'block',
+            }}
+          >
             Publish
           </Button>
         </form>

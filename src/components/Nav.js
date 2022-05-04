@@ -4,10 +4,10 @@ import {useMovieDatabase} from '../hooks/ApiHooks';
 import {
   Nav,
   NavLink,
-  Bars,
   NavMenu,
   NavBtn,
   NavBtnLink,
+  LogoutBtn,
 } from './NavbarElements';
 
 const Navbar = () => {
@@ -25,7 +25,6 @@ const Navbar = () => {
         <NavLink to="/">
           <h1>FilmSTAR</h1>
         </NavLink>
-        <Bars />
         <NavMenu>
           <NavLink to="/search" activeStyle>
             Write A Review
@@ -37,12 +36,14 @@ const Navbar = () => {
             Top Movies
           </NavLink>
         </NavMenu>
-        <NavBtn>
-          <NavBtnLink to="/logout">Logout</NavBtnLink>
-        </NavBtn>
-        <NavBtn>
-          <NavBtnLink to="/login">Sign In / Sign Up</NavBtnLink>
-        </NavBtn>
+        <NavMenu>
+          <LogoutBtn>
+            <NavBtnLink to="/logout">Logout</NavBtnLink>
+          </LogoutBtn>
+          <NavBtn>
+            <NavBtnLink to="/login">Sign In / Sign Up</NavBtnLink>
+          </NavBtn>
+        </NavMenu>
       </Nav>
     </>
   );
