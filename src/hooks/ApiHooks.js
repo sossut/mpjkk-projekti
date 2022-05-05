@@ -25,7 +25,7 @@ const useMovieDatabase = () => {
     try {
       console.log(query);
       const response = await fetchJson(
-        `https://api.themoviedb.org/3/search/movie?api_key=c625771482c38e59b7374dd1c48d75e3&query=${query}`
+        `https://api.themoviedb.org/3/search/movie?api_key=539d08173675ee5a90bc15ed99006dde&query=${query}`
       );
       setMovieArray(response);
       console.log(response);
@@ -37,7 +37,7 @@ const useMovieDatabase = () => {
   const getGenres = async () => {
     try {
       const response = await fetchJson(
-        'https://api.themoviedb.org/3/genre/movie/list?api_key=c625771482c38e59b7374dd1c48d75e3'
+        'https://api.themoviedb.org/3/genre/movie/list?api_key=539d08173675ee5a90bc15ed99006dde'
       );
       console.log('getGenres');
       return response;
