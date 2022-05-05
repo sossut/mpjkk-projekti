@@ -12,10 +12,12 @@ const MediaTable = ({allFiles = true}) => {
   console.log(user);
   const {mediaArray, deleteMedia} = useMedia(allFiles, user?.user_id);
   console.log(mediaArray);
+  const x = [...mediaArray].reverse();
+  console.log(x);
   return (
     <table>
       <tbody>
-        {mediaArray.map((item, index) => {
+        {x.map((item, index) => {
           return (
             <MediaRow
               key={index}
