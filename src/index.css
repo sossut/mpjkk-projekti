@@ -23,16 +23,21 @@ tr {
   display: flex;
   width: 25%;
   float: left;
-  margin-left: 30px;
-  margin-bottom: 30px;
+  margin-left: 3rem;
+  margin-bottom: 3rem;
   padding: 1.5rem;
-  height: 40vh;
+  min-height: 40vh;
+  height: auto;
+  max-height: 40vh;
   border: hidden;
   border-radius: 5px;
   background-color: #fad975;
   overflow-x: hidden;
   overflow-y: auto;
-  margin-top: 30px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+}
+tr:nth-child(-n + 3) {
+  margin-top: 2rem;
 }
 html {
   background-color: beige;
@@ -47,6 +52,9 @@ html {
 td {
   padding: 10px;
 }
+td img {
+  border: 2px solid black;
+}
 #kuvaus {
   display: flex;
 }
@@ -55,4 +63,49 @@ td {
   max-width: 50%;
   margin: auto;
   background-color: #fad975;
+}
+#profileID {
+  width: 20%;
+  padding: 30px;
+  margin: auto;
+  align-items: center;
+}
+#profileID h3 {
+  text-align: center;
+}
+#userInfo {
+  list-style: none;
+  justify-content: center;
+}
+
+/* scroll */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #f5ad42 #ffffff;
+}
+
+*::-webkit-scrollbar {
+  width: 14px;
+}
+
+*::-webkit-scrollbar-track {
+  background: hidden;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #f5ad42;
+  border-radius: 8px;
+}
+
+#topMovie {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid black;
+  width: 100%;
+  background-color: #fad975;
+}
+#topInfo {
+  margin-left: 2rem;
 }

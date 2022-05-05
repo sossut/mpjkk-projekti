@@ -81,6 +81,8 @@ const LoginForm = (props) => {
           variant="contained"
           sx={{
             marginTop: '15px',
+            fontWeight: 'bold',
+            letterSpacing: '2px',
           }}
         >
           Login

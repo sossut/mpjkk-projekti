@@ -3,11 +3,15 @@ import RegisterForm from '../components/RegisterForm';
 import {useState} from 'react';
 import {Button} from '@mui/material';
 import {Container} from '@mui/material';
+import {Helmet} from 'react-helmet';
 
 const Login = () => {
   const [toggle, setToggle] = useState(true);
   return (
     <>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <Container maxWidth="xs">
         {toggle ? <LoginForm /> : <RegisterForm setToggle={setToggle} />}
         <Button

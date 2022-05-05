@@ -167,6 +167,8 @@ const RegisterForm = ({setToggle}) => {
           variant="contained"
           sx={{
             marginTop: '15px',
+            fontWeight: 'bold',
+            letterSpacing: '2px',
           }}
         >
           Register

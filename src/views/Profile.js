@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react';
+import {Helmet} from 'react-helmet';
 import {useUser} from '../hooks/ApiHooks';
+import '../index.css';
 
 const Profile = () => {
   const [user, setUser] = useState({});
@@ -14,12 +16,24 @@ const Profile = () => {
   console.log(user);
   return (
     <>
-      <h1>Profile</h1>
-      <ul>
-        <li>{user.username}</li>
-        <li>{user.full_name}</li>
-        <li>{user.email}</li>
-      </ul>
+      <Helmet>
+        <title>Profile</title>
+      </Helmet>
+      <div id="profileID">
+        <h3>Identifying Details </h3>
+        <ul id="userInfo">
+          <li>
+            <b>Username:</b> {user.username}
+          </li>
+          <li>
+            <b>Full Name:</b> {user.full_name}
+          </li>
+          <li>
+            <b>Email address:</b> {user.email}
+          </li>
+        </ul>
+        <h1>My Reviews</h1>
+      </div>
     </>
   );
 };

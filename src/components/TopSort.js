@@ -94,23 +94,31 @@ const TopSort = ({allFiles = true}) => {
 
   const renderList = final.map((item) => (
     <>
-      <h4>{item.title}</h4>
-      <img
-        className="pic"
-        src={mediaUrl + item.thumbnails.w160}
-        alt={item.title}
-      />
-      <Rating
-        name="read-only"
-        value={item.average}
-        sx={{
-          color: 'black',
-        }}
-        readOnly
-        precision={0.5}
-      >
-        {item.average}
-      </Rating>
+      <div id="topMovie">
+        <img
+          className="pic"
+          src={mediaUrl + item.thumbnails.w160}
+          alt={item.title}
+        />
+        <div id="topInfo">
+          <h4>{item.title}</h4>
+          <p>
+            Average of <b>{item.count}</b> review(s).
+          </p>
+          <Rating
+            name="read-only"
+            value={item.average}
+            sx={{
+              color: 'black',
+              display: 'flex',
+            }}
+            readOnly
+            precision={0.5}
+          >
+            {item.average}
+          </Rating>
+        </div>
+      </div>
     </>
   ));
   return <div id="topList">{renderList}</div>;

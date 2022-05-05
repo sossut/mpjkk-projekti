@@ -20,8 +20,18 @@ export const NavLink = styled(Link)`
   height: 100%;
   cursor: pointer;
 
+  &:nth-child(2) {
+    border-right: 2px solid #fad975;
+    border-left: 2px solid #fad975;
+  }
   &.active {
     color: yellow;
+  }
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #b39a50;
+    border-radius: 8px;
+    color: #010606;
   }
 `;
 
