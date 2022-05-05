@@ -6,9 +6,7 @@ import {Rating} from '@mui/material';
 import {mediaUrl} from '../utils/variables';
 const TopSort = ({allFiles = true}) => {
   const {mediaArray} = useMedia(allFiles);
-  console.log(mediaArray);
 
-  const objz = [];
   const array = [];
   const test = [];
   mediaArray.forEach((movie, i = 0) => {
@@ -28,25 +26,6 @@ const TopSort = ({allFiles = true}) => {
     test[i].count = test[i].ratings.length;
     test[i].average = 0;
 
-    objz[movie.title] = objz[movie.title] || {
-      title: movie,
-      movie_id: movie,
-    };
-    objz[movie.title].ratings = objz[movie.title].ratings || [];
-    objz[movie.title].file_id = movie.file_id;
-    objz[movie.title].movie_id = desc.movie_id;
-    objz[movie.title].ratings.push(desc.rating);
-
-    objz[movie.title].count = objz[movie.title].ratings?.length;
-    let average = 0;
-    objz[movie.title].ratings.forEach((i) => {
-      average += i;
-    });
-    objz[movie.title].average = average / objz[movie.title].ratings?.length;
-    objz[movie.title].movie_id = desc.movie_id;
-    if (!array.includes(objz[movie.title])) {
-      array.push(objz[movie.title]);
-    }
     i++;
   });
   const final = [];

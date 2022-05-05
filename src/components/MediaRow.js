@@ -9,9 +9,10 @@ import '../index.css';
 
 const MediaRow = ({file, deleteMedia, userId}) => {
   console.log(userId);
+  // eslint-disable-next-line no-unused-vars
   const {genres, user} = useContext(MediaContext);
   console.log(genres);
-  console.log(user);
+
   // const genreList = genres.genres;
   const doDelete = () => {
     const ok = confirm('Do you really want to delete this review?');
@@ -34,18 +35,7 @@ const MediaRow = ({file, deleteMedia, userId}) => {
   if (desc.release_date) {
     year = desc.release_date.slice(0, 4);
   }
-  // const genreCheck = () => {
-  //   const array = [];
-  //   desc.genre_ids.forEach((item) => {
-  //     genres.genres.forEach((genre) => {
-  //       if (item === genre.id) {
-  //         array.push(genre.name);
-  //       }
-  //     });
-  //   });
-  //   return array;
-  // };
-  // console.log(genreCheck());
+
   return (
     <tr>
       <td>

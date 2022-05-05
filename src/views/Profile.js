@@ -1,5 +1,8 @@
+import {Button} from '@mui/material';
 import {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
+import {Link} from 'react-router-dom';
+import MediaTable from '../components/MediaTable';
 import {useUser} from '../hooks/ApiHooks';
 import '../index.css';
 
@@ -33,7 +36,23 @@ const Profile = () => {
           </li>
         </ul>
         <h1>My Reviews</h1>
+        {!user.user_id && (
+          <Button
+            variant="contained"
+            component={Link}
+            to={'/login'}
+            style={{
+              backgroundColor: '#f5ad42',
+              color: '#000',
+              border: '1px solid black',
+              marginRight: '10px',
+            }}
+          >
+            Sign In
+          </Button>
+        )}
       </div>
+      <MediaTable allFiles={false} />
     </>
   );
 };
