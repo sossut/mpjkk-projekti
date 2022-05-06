@@ -64,7 +64,7 @@ const Single = () => {
             <p>{desc.description}</p>
           </Typography>
 
-          {user.user_id === file.user_id && (
+          {user?.user_id === file.user_id && (
             <>
               <Button
                 variant="contained"

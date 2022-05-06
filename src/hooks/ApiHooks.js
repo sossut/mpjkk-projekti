@@ -190,7 +190,7 @@ const useTag = () => {
   return {getTag, postTag};
 };
 const useComment = () => {
-  const postComment = async (data, token) => {
+  const postComment = async (fileId, data, token) => {
     const fetchOptions = {
       method: 'POST',
       headers: {
