@@ -31,68 +31,71 @@ const Single = () => {
       }
     }
   };
+
   console.log(desc);
   let year;
   if (desc.release_date) {
     year = desc.release_date.slice(0, 4);
   }
   return (
-    <tr>
-      <td>
-        <img
-          className="pic"
-          src={mediaUrl + file.thumbnails.w160}
-          alt={file.title}
-        />
-      </td>
-      <td id="arvostelu">
-        <h4>
-          {file.title} ({year})
-        </h4>
-        {file.title !== desc.original_title && <h5>{desc.original_title}</h5>}
-        <Rating
-          name="read-only"
-          value={desc.rating}
-          sx={{
-            color: 'black',
-          }}
-          readOnly
-        />
-        <Typography>
-          <p>{desc.description}</p>
-        </Typography>
+    <>
+      <tr>
+        <td>
+          <img
+            className="pic"
+            src={mediaUrl + file.thumbnails.w160}
+            alt={file.title}
+          />
+        </td>
+        <td id="arvostelu">
+          <h4>
+            {file.title} ({year})
+          </h4>
+          {file.title !== desc.original_title && <h5>{desc.original_title}</h5>}
+          <Rating
+            name="read-only"
+            value={desc.rating}
+            sx={{
+              color: 'black',
+            }}
+            readOnly
+          />
+          <Typography>
+            <p>{desc.description}</p>
+          </Typography>
 
-        {user.user_id === file.user_id && (
-          <>
-            <Button
-              variant="contained"
-              component={Link}
-              to={'/modify'}
-              state={{file}}
-              style={{
-                backgroundColor: '#f5ad42',
-                color: '#000',
-                border: '1px solid black',
-                marginRight: '10px',
-              }}
-            >
-              Edit
-            </Button>
-            <Button
-              variant="contained"
-              onClick={doDelete}
-              style={{
-                backgroundColor: '#f5ad42',
-                color: '#000',
-                border: '1px solid black',
-              }}
-            >
-              Delete
-            </Button>
-          </>
-        )}
-      </td>
-    </tr>
+          {user.user_id === file.user_id && (
+            <>
+              <Button
+                variant="contained"
+                component={Link}
+                to={'/modify'}
+                state={{file}}
+                style={{
+                  backgroundColor: '#f5ad42',
+                  color: '#000',
+                  border: '1px solid black',
+                  marginRight: '10px',
+                }}
+              >
+                Edit
+              </Button>
+              <Button
+                variant="contained"
+                onClick={doDelete}
+                style={{
+                  backgroundColor: '#f5ad42',
+                  color: '#000',
+                  border: '1px solid black',
+                }}
+              >
+                Delete
+              </Button>
+            </>
+          )}
+        </td>
+      </tr>
+    </>
   );
 };
 export default Single;

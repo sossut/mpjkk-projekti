@@ -196,6 +196,7 @@ const useComment = () => {
       headers: {
         'x-access-token': token,
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify(data),
     };

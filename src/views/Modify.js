@@ -85,7 +85,14 @@ const Modify = () => {
   console.log(description);
   return (
     <>
-      <Grid container>
+      <Grid
+        container
+        sx={{
+          padding: '30px',
+          width: '50%',
+          margin: '0 auto',
+        }}
+      >
         <Grid item xs={12}>
           {/* <BackButton /> */}
           <Typography component="h1" variant="h2" gutterBottom>
@@ -111,8 +118,22 @@ const Modify = () => {
               value={inputs.description}
               validators={validators.description}
               errorMessages={errorMessages.description}
+              sx={{
+                backgroundColor: '#fff',
+                marginTop: '25px',
+              }}
             />
-            <Button fullWidth color="primary" type="submit" variant="contained">
+            <Button
+              fullWidth
+              color="primary"
+              type="submit"
+              variant="contained"
+              sx={{
+                margin: '20px auto',
+                width: '30%',
+                display: 'block',
+              }}
+            >
               Save
             </Button>
           </ValidatorForm>
