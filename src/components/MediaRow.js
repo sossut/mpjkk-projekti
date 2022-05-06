@@ -65,7 +65,7 @@ const MediaRow = ({file, deleteMedia, userId}) => {
         <Button
           variant="contained"
           component={Link}
-          to={file.filename}
+          to={'/single'}
           state={{file}}
           style={{
             backgroundColor: '#f5ad42',

@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import {MediaContext} from '../contexts/MediaContext';
-import {useMovieDatabase} from '../hooks/ApiHooks';
+import {useMovieDatabase, useUser} from '../hooks/ApiHooks';
 import {
   Nav,
   NavLink,
@@ -11,13 +11,19 @@ import {
 } from './NavbarElements';
 
 const Navbar = () => {
-  const {setGenres} = useContext(MediaContext);
+  const {setGenres, setUser} = useContext(MediaContext);
+  const {getUser} = useUser();
   const {getGenres} = useMovieDatabase();
   useEffect(() => {
     const fetchGenres = async () => {
       setGenres(await getGenres());
     };
+    const fetchUser = async () => {
+      const userData = await getUser(localStorage.getItem('token'));
+      setUser(userData);
+    };
     fetchGenres();
+    fetchUser();
   }, []);
   return (
     <>
