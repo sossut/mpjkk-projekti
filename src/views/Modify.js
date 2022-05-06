@@ -23,7 +23,7 @@ const Modify = () => {
   console.log(desc);
   const alkuarvot = {
     title: file.title,
-    description: desc,
+    description: desc.description,
   };
 
   const validators = {
@@ -47,6 +47,8 @@ const Modify = () => {
   const [genreIds, setGenreIds] = useState(desc.genre_ids);
   // eslint-disable-next-line no-unused-vars
   const [movieId, setMovieId] = useState(desc.movie_id);
+  // eslint-disable-next-line no-unused-vars
+  const [description, setDescription] = useState(desc.description);
   const doModify = async () => {
     try {
       console.log(file);
@@ -80,7 +82,7 @@ const Modify = () => {
   );
 
   console.log(inputs);
-
+  console.log(description);
   return (
     <>
       <Grid container>
@@ -103,7 +105,7 @@ const Modify = () => {
             />
             <TextValidator
               fullWidth
-              placeholder={desc.description}
+              placeholder="description"
               name="description"
               onChange={handleInputChange}
               value={inputs.description}
