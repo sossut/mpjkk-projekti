@@ -189,5 +189,22 @@ const useTag = () => {
   };
   return {getTag, postTag};
 };
+const useComment = () => {
+  const postComment = async (data, token) => {
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        'x-access-token': token,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
+    return await fetchJson(baseUrl + 'comments', fetchOptions);
+  };
+  const getComments = async (fileId) => {
+    return await fetchJson(baseUrl + 'comments/file/' + fileId);
+  };
+  return {postComment, getComments};
+};
 
-export {useMedia, useMovieDatabase, useUser, useLogin, useTag};
+export {useMedia, useMovieDatabase, useUser, useLogin, useTag, useComment};
